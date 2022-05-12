@@ -1,10 +1,11 @@
 package entity;
 
-public abstract class ElementoDePista extends Pista{
-	private double y;
-	
+public abstract class ElementoDePista //extends Pista 
+{
+	protected double y;	//pos 
 
-	public ElementoDePista(double y) {
+	
+	public ElementoDePista(double y) {	//elementos de pista de crean antes de jugar
 		this.y = y;
 	}
 

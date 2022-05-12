@@ -4,32 +4,29 @@ import enums.Color;
 
 public abstract class Vehiculo extends ElementoDePista {
 
-	private static final int VELOCIDAD_MAX = 400;// max 400km/h
-	private Integer velocidadMaxima;
-	private Integer velocidad;
-	private Color color;
-
-	public Vehiculo(double y, Color color) {
+	protected Integer velocidad = 0;
+	protected Color color;
+	protected Integer vidas;
+	protected boolean vivo = true;
+	
+	public Vehiculo(double y, Color c) {
 		super(y);
-		this.velocidadMaxima = VELOCIDAD_MAX;
-		this.velocidad = 0;
-		this.color = color;
+		color = c;
 	}
 
 	public void avanzar() {
-		this.setY(this.getY() + 1);
+		
+	}
+	
+	public void chocar() {
+		
 	}
 
-	public Integer getVelocidad() {
-		return velocidad;
+	//se comporta igual tanto para jugador como para bot
+	public void explotar() {
+		this.vidas -= 1;
+		if(this.vidas < 1) {
+			this.vivo = false;
+		}
 	}
-
-	public void setVelocidad(Integer velocidad) {
-		this.velocidad = velocidad;
-	}
-
-	public Integer getVelocidadMaxima() {
-		return velocidadMaxima;
-	}
-
 }
